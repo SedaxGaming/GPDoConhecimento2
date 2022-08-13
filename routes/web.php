@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LayoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/index', function () {return view('index');});
 
+Route::get('/adm', function () {return view('adm/login');});
+
+Route::get('/login', function () {return view('login');});
+
+Route::get('/header',[LayoutController::class, "header"]);
+
+Route::get('/footer',[LayoutController::class, "footer"]);

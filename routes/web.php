@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdmController;
+use App\Http\Controllers\AdmLoginController;
 use App\Http\Controllers\LayoutController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +21,22 @@ Route::get('/', function () {return view('welcome');});
 
 Route::get('/index', function () {return view('index');});
 
-Route::get('/adm', function () {return view('adm/login');});
+//administration
 
-Route::get('/login', function () {return view('login');});
+Route::get('/adm', [AdmLoginController::class,"layout"] );
+Route::post('/adm', [AdmLoginController::class,"login"] );
 
+Route::get('/painel', [AdmController::class,"layout"] );
+
+
+//logins
+
+Route::get('/login', [LoginController::class, "layout"]);
+Route::post('/login', [LoginController::class,"login"]);
+
+
+
+//layouts
 Route::get('/header',[LayoutController::class, "header"]);
 
 Route::get('/footer',[LayoutController::class, "footer"]);

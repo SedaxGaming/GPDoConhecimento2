@@ -10,15 +10,16 @@ GP do Conhecimento 2.0 - Faculdades IDEAU - Programado por Sedax.?/DavesHK
     <table><h1>GP do Conhecimento</h1></table>
     
 <div class="ml-50 my-50">
-    <form action="login.php" method="post" name="formulario">
+    <form action="login" method="post" name="formulario">
+        @csrf
         <div>
-        <label for="exampleInputEmail1" class="form-label">Usuário</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label class="form-label">Usuário</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"> 
         <div id="emailHelp" class="form-text">Use o seu email para fazer login</div>
         </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label class="form-label">Senha</label>
+        <input type="password" class="form-control" id="password" name="password">
     </div>
         <button type="submit" class="btn btn-primary">Logar</button>
 </form>

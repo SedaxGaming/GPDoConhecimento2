@@ -3,38 +3,50 @@
 @endsection
 @section('body')
 
-<source src="{{asset('resources/js/*')}}" type="stylesheet">
 
 <body>
-    <table><h1>GP do Conhecimento</h1></table>
-    
-<div class="ml-50 my-50">
-    <form action="adm" method="post" name="formulario">
-        @csrf
-        <div>
-        <label class="form-label">Usuário</label>
-        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="email">
-        <div id="emailHelp" class="form-text">Use o seu email para fazer login</div>
-        </div>
-    <div class="mb-3">
-        <label class="form-label">Senha</label>
-        <input type="password" class="form-control" id="Password" name="password">
-    </div>
-        <button type="submit" class="btn btn-primary">Logar</button>
-</form>
-</div>
+    <table><h1 class="text-center mt-3" >GP do Conhecimento</h1></table>
 
-<div id="footer" class="footer">
-	<div class="container">
-		<div id='horaAtual' class="footer-left"></div>
-		<div id="logos" class="footer-right">
-			&nbsp;
-			<img src="imagens/logoIdeauPequeno.png" />
-			&nbsp;
-			<img src="imagens/logoCerebrandoPequeno.png" />
-			&nbsp;
-		</div>
-	</div>
+
+@if (session('error'))
+    <div class="alert alert-error">
+        {{ session('error') }}
+    </div>
+@endif
+<div class="container">
+    <div class="card card-login mx-auto text-center bg-dark">
+        <div class="card-header mx-auto bg-dark">
+            <span> <img src="imagens/logoIdeauPequeno.png"/> </span><br/>
+                        <span class="logo_title mt-5"> Painel de Administração </span>
+        </div>
+        <div class="card-body">
+            <form action="" method="post" name="formulario">
+                @csrf
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text mb-4"><img src="/svgs/solid/user.svg" alt=""></span>
+                    </div>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text mb-4"><img src="svgs/solid/lock.svg" alt=""></span>
+                    </div>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Senha">
+                </div>
+
+                <div class="form-group">
+                <button type="submit" class="btn btn-outline-danger float-right login_btn" data-toggle="modal"
+                    data-target="#exampleModalCenter"> 
+                    Login
+                </button>
+                </div>
+            </form>
+            <img class="ml-0 mr-10" src="imagens/logoCerebrandoPequeno.png" />
+        </div>
+    </div>
 </div>
-@endsection
+    @endsection
 </body>
+

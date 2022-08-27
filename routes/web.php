@@ -27,6 +27,13 @@ Route::get('/adm', [AdmLoginController::class,"layout"] );
 Route::post('/adm', [AdmLoginController::class,"login"] );
 
 Route::get('/painel', [AdmController::class,"layout"] );
+Route::get('/painel/cadastros', [AdmController::class,"menuCadastros"] );
+Route::get('/painel/juri', [AdmController::class,"menuJuri"] );
+
+Route::get('/placar', [AdmController::class,"placar"] );
+Route::get('/cronometro', [AdmController::class,"cronometro"] );
+
+
 
 
 //logins

@@ -1,8 +1,19 @@
+<?php
+session_start();
+if (isset($_SESSION["loggedin"])) {
+  header("location: painel");
+  exit;
+}
+?>
+
+
 @extends('includes/master') 
 @section('title')
 @endsection
 @section('body')
 
+
+<link rel="stylesheet" href="/css/login.css">
 
 <body>
     <table><h1 class="text-center mt-3" >GP do Conhecimento</h1></table>

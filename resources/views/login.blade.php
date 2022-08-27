@@ -4,6 +4,9 @@ GP do Conhecimento 2.0 - Faculdades IDEAU - Programado por Sedax.?/DavesHK
 @endsection
 @section('body')
 
+
+<link rel="stylesheet" href="/css/login.css">
+
 <body>
     <table><h1 class="text-center mt-3" >GP do Conhecimento</h1></table>
 

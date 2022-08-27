@@ -7,10 +7,9 @@
     <title>
         GP do Conhecimento 2.0 - Faculdades IDEAU - Programado por Sedax.?/DavesHK
     </title>
-    <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/bootstrap/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
-    <script src="/js/bootstrap/bootstrap.js"></script>
-    <script src="/js/Jquery.js" type="text/javascript"></script>
+    
     
 </head>
 <body>

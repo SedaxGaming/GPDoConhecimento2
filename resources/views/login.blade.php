@@ -4,6 +4,13 @@ GP do Conhecimento 2.0 - Faculdades IDEAU - Programado por Sedax.?/DavesHK
 @endsection
 @section('body')
 
+<?php
+session_start();
+if (isset($_SESSION["logado"])) {
+  header("location: mainmenu");
+  exit;
+}
+?>
 
 <link rel="stylesheet" href="/css/login.css">
 

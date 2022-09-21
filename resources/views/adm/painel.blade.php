@@ -1,5 +1,6 @@
 @extends('includes/requireLogin') 
 
+
 <link rel="stylesheet" href="../css/painel.css">
 
 <main class="site-wrapper">
@@ -37,6 +38,7 @@
                 <div class="hex-item"></div>
                 <a class="hex-content"></a>
               </div>
+              @if(session()->get('nperm') >= 33);
               <div onclick="cadastros()" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>
@@ -60,6 +62,8 @@
                   </svg>
                 </a>
               </div>
+              @endif
+              @if(session()->get('nperm') >= 22);
               <div onclick="juri()" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>
@@ -83,11 +87,13 @@
                   </svg>
                 </a>
               </div>
+              @endif
               <div class="hexagon-item">
                 <div class="hex-item"></div>
                 <div class="hex-item"></div>
                 <a class="hex-content"></a>
               </div>
+              @if(session()->get('nperm') >= 0);
               <div onclick="placar()" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>
@@ -110,8 +116,9 @@
                     <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
                   </svg>
                 </a>
-             
               </div>
+              @endif
+              @if(session()->get('nperm') >= 11);
               <div onclick="cronometro()" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>
@@ -134,6 +141,7 @@
                     <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
                   </svg>
                 </a>
+                @endif
               </div>
             </div>
           </div>

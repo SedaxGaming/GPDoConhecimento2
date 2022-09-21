@@ -9,16 +9,23 @@ use Illuminate\Support\Facades\Redirect;
 class AdmLoginController extends Controller
 {
     public function Login(Request $request){
-        //TODO -> capturar o request e verificar os dados no banco de dados. retornar o painel principal 
+        $encrypPassword = md5($request->password);
+
         $adm = Administradore::where('email', '=', $request->email)
-            ->where('senha','=',$request->password)->count(); 
+            ->where('senha','=',$encrypPassword)->count(); 
         if ($adm >=1){
+            $access = Administradore::where('email', '=', $request->email)
+            ->where('senha','=',$encrypPassword)->first();
             session_start();
             $_SESSION["loggedin"] = true;
-            $_SESSION["usuario"] = $request->email;
-          
-
-
+            session(['loggedin' => true]);
+            $_SESSION["email"] = $access->email;
+            session(['email' => $access->email]);
+            $_SESSION["nome"] = $access->nome;
+            session(['nome' => $access->nome]);
+            $_SESSION["nperm"] = $access->permissao;
+            session(['nperm' => $access->permissao]);
+                               
             return redirect('painel');
         }else{
             $type ="Os dados inseridos estão incorretos, por favor tente novamente!";

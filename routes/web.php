@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\AdmLoginController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PerguntasController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +20,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('welcome');});
+//gerais
 
+Route::get('/', function () {return view('welcome');});
 Route::get('/index', function () {return view('index');});
+Route::get('/logout',function(){return view('logout');});
+Route::get('/mainmenu', [GameController::class, "mainmenu"]);
+
+//logins
+
+Route::get('/login', [LoginController::class, "layout"]);
+Route::post('/login', [LoginController::class,"login"]);
 
 //administration
 
@@ -27,23 +38,39 @@ Route::get('/adm', [AdmLoginController::class,"layout"] );
 Route::post('/adm', [AdmLoginController::class,"login"] );
 
 Route::get('/painel', [AdmController::class,"layout"] );
+
 Route::get('/painel/cadastros', [AdmController::class,"menuCadastros"] );
 Route::get('/painel/juri', [AdmController::class,"menuJuri"] );
 
 Route::get('/placar', [AdmController::class,"placar"] );
 Route::get('/cronometro', [AdmController::class,"cronometro"] );
 
+//tabelas
+
+Route::get('/painel/cadastros/usuarios', [UsuarioController::class, "show"]);
+Route::get('/painel/cadastros/administradores', [AdmController::class, "show"]);
+Route::get('/painel/cadastros/perguntas', [PerguntasController::class, "show"]);
+
+//cadastros
+
+Route::get('/painel/cadastros/usuarios/novo', [UsuarioController::class,"create"] );
+Route::post('/painel/cadastros/usuarios/novo', [UsuarioController::class,"insert"]);
+
+Route::get('/painel/cadastros/administradores/novo', [AdmController::class,"create"]);
+Route::post('/painel/cadastros/administradores/novo', [AdmController::class,"insert"]);
+
+Route::get('/painel/cadastros/perguntas/novo', [PerguntasController::class,"create"] );
+Route::post('/painel/cadastros/perguntas/novo', [PerguntasController::class,"insert"]);
 
 
+//edições
 
-//logins
+Route::get('/painel/cadastros/perguntas/{pergunta}', [PerguntasController::class,"edit"])->name('perguntas.edit');
+Route::put('/painel/cadastros/perguntas/{pergunta}', [PerguntasController::class,"editar"])->name('perguntas.editar');
 
-Route::get('/login', [LoginController::class, "layout"]);
-Route::post('/login', [LoginController::class,"login"]);
+Route::get('/painel/cadastros/administradores/{adm}', [AdmController::class,"edit"])->name('adm.edit');
+Route::put('/painel/cadastros/administradores/{adm}', [AdmController::class,"editar"])->name('adm.editar');
 
+Route::get('/painel/cadastros/usuarios/{usuario}', [UsuarioController::class,"edit"])->name('usuarios.edit');
+Route::put('/painel/cadastros/usuarios/{usuario}', [UsuarioController::class,"editar"])->name('usuarios.editar');
 
-
-//layouts
-Route::get('/header',[LayoutController::class, "header"]);
-
-Route::get('/footer',[LayoutController::class, "footer"]);

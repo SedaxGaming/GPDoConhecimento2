@@ -19,7 +19,6 @@ return new class extends Migration
             $table->timestamp('dataFim');
             $table->string('nome');
             $table->double('pontuacao',3,2);
-            $table->string('respostaCorreta');
             $table->foreignId('idpergunta');
             $table->foreignId('idusuarios');
             $table->foreign('idpergunta')->references('id')->on('perguntas');

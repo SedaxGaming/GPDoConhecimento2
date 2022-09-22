@@ -1,15 +1,3 @@
-<?php
-
-use App\Models\Administradore;
-use App\Models\Pergunta;
-use App\Models\Usuario;
-
-$usuarios = Usuario::all();
-$administradores = Administradore::all();
-$perguntas = Pergunta::all();
-
-?>
-
 @extends('includes/requireLogin')
 @extends('includes/master')
 

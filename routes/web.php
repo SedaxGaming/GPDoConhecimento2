@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\AdmLoginController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\JuriController;
 use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerguntasController;
@@ -74,3 +75,24 @@ Route::put('/painel/cadastros/administradores/{adm}', [AdmController::class,"edi
 Route::get('/painel/cadastros/usuarios/{usuario}', [UsuarioController::class,"edit"])->name('usuarios.edit');
 Route::put('/painel/cadastros/usuarios/{usuario}', [UsuarioController::class,"editar"])->name('usuarios.editar');
 
+//Juri -> Etapas 
+
+Route::get('/painel/juri/EtapaAtual/', [JuriController::class,"create"] );
+Route::post('/painel/juri/EtapaAtual/', [JuriController::class,"insert"]);
+
+Route::get('/painel/juri/EtapasAnteriores', [JuriController::class,"create"] );
+Route::post('/painel/juri/EtapasAnteriores', [JuriController::class,"insert"]);
+
+Route::get('/painel/juri/CriarEtapa', [JuriController::class,"create"] );
+Route::post('/painel/juri/CriarEtapa', [JuriController::class,"insert"]);
+
+//Juri -> Provas
+
+Route::get('/painel/juri/ProvaAtual', [JuriController::class,"create"] );
+Route::post('/painel/juri/ProvaAtual', [JuriController::class,"insert"]);
+
+Route::get('/painel/juri/ProvasAnteriores', [JuriController::class,"create"] );
+Route::post('/painel/juri/ProvasAnteriores', [JuriController::class,"insert"]);
+
+Route::get('/painel/juri/CriarProva', [JuriController::class,"create"] );
+Route::post('/painel/juri/CriarProva', [JuriController::class,"insert"]);

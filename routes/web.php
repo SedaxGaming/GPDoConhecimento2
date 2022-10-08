@@ -77,22 +77,21 @@ Route::put('/painel/cadastros/usuarios/{usuario}', [UsuarioController::class,"ed
 
 //Juri -> Etapas 
 
-Route::get('/painel/juri/EtapaAtual/', [JuriController::class,"create"] );
-Route::post('/painel/juri/EtapaAtual/', [JuriController::class,"insert"]);
+Route::get('/painel/juri/EtapaAtual/', [JuriController::class,"EtapaAtualView"] );
+Route::get('/painel/juri/EtapasAnteriores', [JuriController::class,"EtapaAnteriorView"] );
+Route::get('/painel/juri/CriarEtapa', [JuriController::class,"CriarEtapaView"] );
 
-Route::get('/painel/juri/EtapasAnteriores', [JuriController::class,"create"] );
-Route::post('/painel/juri/EtapasAnteriores', [JuriController::class,"insert"]);
-
-Route::get('/painel/juri/CriarEtapa', [JuriController::class,"create"] );
-Route::post('/painel/juri/CriarEtapa', [JuriController::class,"insert"]);
+Route::get('/painel/juri/etapa/criar', [JuriController::class,"criarEtapa"]);
+Route::post('/painel/juri/etapa/criar', [JuriController::class,"InsertEtapa"]);
+//Route::post('/painel/juri/CriarEtapa', [JuriController::class,"EditEtapa"]);
+//Route::get('/painel/juri/EditarEtapa', [JuriController::class,"EditarEtapa"]);
 
 //Juri -> Provas
 
-Route::get('/painel/juri/ProvaAtual', [JuriController::class,"create"] );
-Route::post('/painel/juri/ProvaAtual', [JuriController::class,"insert"]);
+Route::get('/painel/juri/ProvaAtual', [JuriController::class,"ProvaAtualView"] );
+Route::get('/painel/juri/ProvasAnteriores', [JuriController::class,"ProvaAnteriorView"] );
+Route::get('/painel/juri/CriarProva', [JuriController::class,"CriarProvaView"] );
 
-Route::get('/painel/juri/ProvasAnteriores', [JuriController::class,"create"] );
-Route::post('/painel/juri/ProvasAnteriores', [JuriController::class,"insert"]);
-
-Route::get('/painel/juri/CriarProva', [JuriController::class,"create"] );
-Route::post('/painel/juri/CriarProva', [JuriController::class,"insert"]);
+Route::post('/painel/juri/CriarProva', [JuriController::class,"InsertProva"]);
+Route::post('/painel/juri/CriarProva', [JuriController::class,"EditProva"]);
+Route::post('/painel/juri/EditarProva', [JuriController::class,"EditarProva"]);

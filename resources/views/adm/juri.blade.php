@@ -14,18 +14,18 @@
                 <div class="pl-3" >Etapas:</div>
                 <a onclick="carregarEtapaAtual()" class="list-group-item list-group-item-action list-group-item-light p-3" >Etapa Atual</a>
                 <a onclick="carregarEtapaAnterior()" class="list-group-item list-group-item-action list-group-item-light p-3" >Etapas anteriores</a>
-                <a onclick="carregarCriarEtapa()" class="list-group-item list-group-item-action list-group-item-light p-3" >Criar etapa</a>
+                <a onclick="carregarCriarEtapa()" class="list-group-item list-group-item-action list-group-item-light p-3" >Criar/Editar etapa</a>
                 <div>Provas:</div>
                 <a onclick="carregarProvaAtual()" class="list-group-item list-group-item-action list-group-item-light p-3" >Prova Atual</a>
                 <a onclick="carregarProvaAnterior()" class="list-group-item list-group-item-action list-group-item-light p-3" >Provas anteriores</a>
-                <a onclick="carregarCriarProva()" class="list-group-item list-group-item-action list-group-item-light p-3" >Criar Prova</a>
+                <a onclick="carregarCriarProva()" class="list-group-item list-group-item-action list-group-item-light p-3" >Criar/Editar Prova</a>
             </div>
         </div>
-        <div id="page-content-wrapper">
             <div class="container-fluid">
-            <div id="conteudo"></div>
+                <div id="conteudo">
+                    
+                </div>
             </div>
-        </div>
     </div>
 </body>
 
@@ -53,6 +53,14 @@
     }
 
 </script>
+
+<style>
+    #conteudo{
+        position: relative;
+        height: 100%;
+    }
+
+</style>
 
 
 @extends('includes/footer')

@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('etapas', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('dataIncio')->nullable()->default('null');
-            $table->timestamp('dataFim')->nullable()->default('null');
+            $table->timestamp('dataIncio')->nullable();
+            $table->timestamp('dataFim')->nullable();
             $table->string('nome');
-            $table->int('pontuacao');
-            $table->int('numero');
+            $table->integer('pontuacao');
+            $table->integer('numero');
             $table->foreignId('idpergunta');
             $table->foreignId('idusuarios');
             $table->foreign('idpergunta')->references('id')->on('perguntas');

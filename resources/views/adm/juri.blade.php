@@ -1,5 +1,12 @@
 @extends('includes/requireLogin')
 @extends('includes/master')
+<?php
+ if(session()->get('nperm') < 22) {
+  header("location: ../painel");
+  exit;
+}
+?>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -13,11 +20,11 @@
             <div class="list-group list-group-flush">
                 <div class="pl-3" >Etapas:</div>
                 <a onclick="carregarEtapaAtual()" class="list-group-item list-group-item-action list-group-item-light p-3" >Etapa Atual</a>
-                <a onclick="carregarEtapaAnterior()" class="list-group-item list-group-item-action list-group-item-light p-3" >Etapas anteriores</a>
+                <a onclick="carregarEtapaAnterior()" class="list-group-item list-group-item-action list-group-item-light p-3" >Tabela de Etapas Finalizadas</a>
                 <a onclick="carregarCriarEtapa()" class="list-group-item list-group-item-action list-group-item-light p-3" >Criar/Editar etapa</a>
                 <div>Provas:</div>
                 <a onclick="carregarProvaAtual()" class="list-group-item list-group-item-action list-group-item-light p-3" >Prova Atual</a>
-                <a onclick="carregarProvaAnterior()" class="list-group-item list-group-item-action list-group-item-light p-3" >Provas anteriores</a>
+                <a onclick="carregarProvaAnterior()" class="list-group-item list-group-item-action list-group-item-light p-3" >Tabela de Provas Finalizadas</a>
                 <a onclick="carregarCriarProva()" class="list-group-item list-group-item-action list-group-item-light p-3" >Criar/Editar Prova</a>
             </div>
         </div>
@@ -28,6 +35,11 @@
             </div>
     </div>
 </body>
+@if (session('error'))
+<div class="alert alert-error">
+    {{ session('error') }}
+</div>
+@endif
 
 </html>
 

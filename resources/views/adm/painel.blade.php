@@ -38,7 +38,7 @@
                 <div class="hex-item"></div>
                 <a class="hex-content"></a>
               </div>
-              @if(session()->get('nperm') >= 33);
+              @if(session()->get('nperm') >= 33)
               <div onclick="cadastros()" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>
@@ -63,7 +63,7 @@
                 </a>
               </div>
               @endif
-              @if(session()->get('nperm') >= 22);
+              @if(session()->get('nperm') >= 22)
               <div onclick="juri()" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>
@@ -93,7 +93,7 @@
                 <div class="hex-item"></div>
                 <a class="hex-content"></a>
               </div>
-              @if(session()->get('nperm') >= 0);
+              @if(session()->get('nperm') >= 0)
               <div onclick="placar()" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>
@@ -118,7 +118,7 @@
                 </a>
               </div>
               @endif
-              @if(session()->get('nperm') >= 11);
+              @if(session()->get('nperm') >= 11)
               <div onclick="cronometro()" class="hexagon-item">
                 <div class="hex-item">
                   <div></div>

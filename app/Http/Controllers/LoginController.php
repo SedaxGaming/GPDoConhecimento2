@@ -18,12 +18,14 @@ class LoginController extends Controller
                 ->where('senha','=',$encrypPassword)->first();
                 session_start();
     
-                $_SESSION["logado"] = true;
-                session(['logado' => true]);
-                $_SESSION["nome"] = $access->nome;
-                session(['nome' => $access->nome]);
-                $_SESSION["email"] = $access->email;
-                session(['email' => $access->email]);
+                $_SESSION["logged"] = true;
+                session(['logged' => true]);
+                $_SESSION["name"] = $access->nome;
+                session(['name' => $access->nome]);
+                $_SESSION["mail"] = $access->email;
+                session(['mail' => $access->email]);
+                $_SESSION["id"] = $access->id;
+                session(['id' => $access->id]);
                 
             return redirect('mainmenu');
         }else{

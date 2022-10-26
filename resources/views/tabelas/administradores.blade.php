@@ -4,7 +4,7 @@
 
 use App\Models\Administradore;
 
-$administradore = Administradore::paginate(15);
+$administradore = Administradore::all();
 ?>
 <a href="/painel/cadastros/administradores/novo">
   <button type="button" class="btn btn-success mb-4">Novo registro</button>
@@ -39,8 +39,8 @@ $administradore = Administradore::paginate(15);
               <a href="{{route('adm.edit',$adm->id)}}"><button type="button" class="btn btn-outline-success btn-info">Visualizar e Editar</button></a>
             </td>
           </tr>
-          @endforeach
         </tbody>
+        @endforeach
       </table>
     </div>
   </div>

@@ -1,5 +1,11 @@
 @extends('includes/requireLogin')
 @extends('includes/master')
+<?php
+ if(session()->get('nperm') < 33) {
+  header("location: ../adm");
+  exit;
+}
+?>
 
 <link rel="stylesheet" href="/css/cadastros.css">
 <script src="/js/Jquery.js"></script>

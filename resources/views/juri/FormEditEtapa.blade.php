@@ -4,33 +4,25 @@
 
 <?php
 
-use App\Models\Etapa;
 use App\Models\Pergunta;
 use App\Models\Usuario;
-use Illuminate\Support\Facades\DB;
 
-$etapas = DB::table('etapas')->orderBy('id', 'desc')->first();
 $usuarios = Usuario::all()->where('ativo');
 $perguntas = Pergunta::all()->where('ativo');
 
 ?>
 
-<link rel="stylesheet" href="../../js/datatables/dataTables.bootstrap4.min.css">
-<script src="../../js/Jquery.js"></script>
-<script src="../../js/datatables/jquery.dataTables.min.js"></script>
-<script src="../../js/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="../../js/datatables/datatables-demo.js"></script>
-
-<form class="m-3" method="POST" name="form">
+<form class="m-3" method="POST" name="form" action="{{route('etapas.editar', $etapa)}}">
     @csrf
+    @method('put')
     <div class="form-group">
         <label for="exampleFormControlInput1">Nome</label>
-        <input type="name" class="form-control" id="nome" name="nome" placeholder="Insira um nome para a etapa...">
+        <input type="name" class="form-control" id="nome" name="nome" value="{{$etapa->nome}}">
     </div>
 
     <div class="form-group">
         <label for="exampleFormControlInput1">Pontuação</label>
-        <input type="number" class="form-control" id="pontuacao" name="pontuacao" placeholder="Insira uma pontuação equivalente a esta etapa...">
+        <input type="number" class="form-control" id="pontuacao" name="pontuacao" value="{{$etapa->pontuacao}}">
     </div>
 
     <div class="m-3">
@@ -57,11 +49,12 @@ $perguntas = Pergunta::all()->where('ativo');
 
         <div class="form-group">
         <label for="exampleFormControlInput1">Código da etapa
-            <input readonly type="number" value="{{$etapas->id + 1}}" class="form-control" id="codigo" name="codigo"/> 
+            <input readonly type="number" value="{{$etapa->numero}}" class="form-control" id="codigo" name="codigo"/> 
         </label>
         </div>
 
-        <button type="submit" class="btn btn-info mt-5">Cadastrar Etapa</button>
+        <button type="submit" class="btn btn-info mt-5">Editar Etapa</button>
+        <p>AO EDITAR É NESCESSÁRIO SELECIONAR NOVAMENTE A ETAPA E OS USUARIOS</p>
     </div>
 </form>
 @if (session('error'))

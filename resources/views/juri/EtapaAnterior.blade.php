@@ -4,7 +4,7 @@
 
 use App\Models\Etapa;
 
-$etapas = Etapa::all()->whereNotNull('dataFim');
+$etapas = Etapa::all()->whereNotNull('dataFim')->unique('nome');;
 
 ?>
 
@@ -38,7 +38,7 @@ $etapas = Etapa::all()->whereNotNull('dataFim');
         <td>{{$etapa->pontuacao}}</td>
         <td>{{$etapa->numero}}</td>
         <td>
-          <a href="{{}}"><button type="button" class="btn btn-outline-success btn-info">Visualizar e Editar</button></a>
+          <a href="{{route('etapas.visualizar',$etapa->id)}}"><button type="button" class="btn btn-outline-success btn-info">Visualizar</button></a>
         </td>
       </tr>
     </tbody>

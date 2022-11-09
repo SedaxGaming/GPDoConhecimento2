@@ -2,16 +2,16 @@
 @extends('includes/master')
 @extends('includes/footer')
 
-<form method="POST" name="form" action="{{route('perguntas.editar', $pergunta)}}">
-    @csrf
-    @method('put')
+<form method="POST" name="form" enctype="multipart/form-data" action="{{route('perguntas.editar', $pergunta)}}">
+  @csrf
+  @method('put')
   <div class="form-group">
     <label for="exampleFormControlInput1">Pergunta</label>
     <input type="text" class="form-control" id="pergunta" name="pergunta" value="{{$pergunta->pergunta}}">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Resposta correta</label>
-    <input type="text" class="form-control" id="Correta" name="respostaCorreta"  value="{{$pergunta->respostaCorreta}}">
+    <input type="text" class="form-control" id="Correta" name="respostaCorreta" value="{{$pergunta->respostaCorreta}}">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Resposta errada 1</label>
@@ -31,11 +31,18 @@
       <option value="1">Ativo</option>
       <option value="0">Inativo</option>
     </select>
-  
-  <button type="submit" class="btn btn-info">Salvar</button>
+    <br>
+    <div class="form-group w-25 p-3 ">
+      @if($imgquestao != null)
+      <label for="image">Imagem da questão:</label>
+      <img src="/imgquestoes/{{$imgquestao[0]->image}}" alt="">
+      @endif
+       <input type="file" class="form-control-file" id="image" name="image">
+    </div>
+    <button type="submit" class="btn btn-info">Salvar</button>
 </form>
 @if (session('error'))
-    <div class="alert alert-error">
-        {{ session('error') }}
-    </div>
+<div class="alert alert-error">
+  {{ session('error') }}
+</div>
 @endif

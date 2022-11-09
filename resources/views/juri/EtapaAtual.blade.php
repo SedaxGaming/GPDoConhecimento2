@@ -27,8 +27,8 @@ foreach ($prova as $id) {
   array_push($arrayIdEtapa, $id->idetapas);
 }
 
-$etapas_prova = Etapa::all()->where('etapaAtual', 0)
-->whereIn('id', $arrayIdEtapa)->whereNull('dataFIM')->unique('nome');
+$etapas_prova = Etapa::all()->where('etapaAtual', 0)->whereNull('DataFim')
+->whereIn('id', $arrayIdEtapa)->whereNull('dataIncio')->unique('nome');
 
 ?>
 

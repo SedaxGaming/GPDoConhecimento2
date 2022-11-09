@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-custom navbar-mainbg">
     <a class="navbar-brand navbar-logo" href="../"><img src="/imagens/logoIdeauPequeno.png" alt="Logo"></a>
-    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <div class="hori-selector">

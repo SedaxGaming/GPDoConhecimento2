@@ -6,7 +6,7 @@
 
 use App\Models\Etapa;
 
-$etapas = Etapa::all()->where('ganhadores', NULL)->where('dataIncio', NULL)->where('dataFim', NULL);
+$etapas = Etapa::all()->where('ganhadores', NULL)->where('dataIncio', NULL)->where('dataFim', NULL)->unique('nome');
 
 ?>
 

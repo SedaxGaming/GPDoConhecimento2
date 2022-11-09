@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('idusuarios')->nullable();
             $table->foreign('idusuarios')->references('id')->on('usuarios');
             $table->string('resposta')->nullable();
+            $table->integer('numero_prova')->nullable();
         });
     }
 

@@ -27,6 +27,8 @@ Route::get('/', function () {return view('welcome');});
 Route::get('/index', function () {return view('index');});
 Route::get('/logout',function(){return view('logout');});
 Route::get('/mainmenu', [GameController::class, "mainmenu"]);
+Route::post('/resposta/respondendo', [GameController::class,"lancarResposta"]);
+Route::get('/ganhador/{prova}', [JuriController::class,"showGanhador"])->name('ganhador.show');
 
 //logins
 

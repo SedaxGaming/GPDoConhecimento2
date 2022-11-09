@@ -2,8 +2,8 @@
 @extends('includes/master')
 @extends('includes/footer')
 
-<form method="POST" name="form">
-    @csrf
+<form method="POST" name="form" enctype="multipart/form-data">
+  @csrf
   <div class="form-group">
     <label for="exampleFormControlInput1">Pergunta</label>
     <input type="text" class="form-control" id="pergunta" name="pergunta" placeholder="Insira uma pergunta...">
@@ -30,11 +30,15 @@
       <option value="1">Ativo</option>
       <option value="0">Inativo</option>
     </select>
-  
-  <button type="submit" class="btn btn-info">Cadastrar</button>
+    <br>
+    <div class="form-group">
+      <label for="image">Imagem da questão:</label>
+      <input type="file" class="form-control-file" id="image" name="image">
+    </div>
+    <button type="submit" class="btn btn-info">Cadastrar</button>
 </form>
 @if (session('error'))
-    <div class="alert alert-error">
-        {{ session('error') }}
-    </div>
+<div class="alert alert-error">
+  {{ session('error') }}
+</div>
 @endif

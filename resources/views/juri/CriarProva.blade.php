@@ -4,7 +4,7 @@
 
 use App\Models\Prova;
 
-$provas = Prova::all()->whereNull('ganhador')->unique('nome');
+$provas = Prova::all()->whereNull('ganhador')->where('provaAtual', '=', 0)->unique('nome');
 ?>
 
 <a href="/painel/juri/prova/criar">

@@ -66,8 +66,8 @@ i {
 	display:inline-block;
 	position:absolute;
 	height: 100%;
-	top: 0px;
-	left: 0px;
+	top: 10px;
+	left: 10px;
 	transition-duration:0.6s;
 	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	background-color: rgb(255, 255, 255);
@@ -108,7 +108,7 @@ i {
 }
 
 
-@media(min-width: 992px){
+@media(min-width: 300px){
 	.navbar-expand-custom {
 	    -ms-flex-flow: row nowrap;
 	    flex-flow: row nowrap;
@@ -136,9 +136,9 @@ i {
 		padding: 12px 30px;
 	}
 	.hori-selector{
-		margin-top: 0px;
+		margin-top: 10px;
 		margin-left: 10px;
-		border-radius: 0;
+		border-radius: 10;
 		border-top-left-radius: 25px;
 		border-bottom-left-radius: 25px;
 	}

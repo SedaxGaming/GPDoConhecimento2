@@ -1,3 +1,6 @@
 @extends('includes/master')
+<?php
 
-<title>Teste</title>
+header("location: 404");
+exit;
+?>

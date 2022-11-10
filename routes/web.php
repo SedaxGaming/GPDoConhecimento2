@@ -27,6 +27,8 @@ Route::get('/', function () {return view('welcome');});
 Route::get('/index', function () {return view('index');});
 Route::get('/logout',function(){return view('logout');});
 Route::get('/mainmenu', [GameController::class, "mainmenu"]);
+Route::post('/resposta/respondendo', [GameController::class,"lancarResposta"]);
+Route::get('/ganhador/{prova}', [JuriController::class,"showGanhador"])->name('ganhador.show');
 
 //logins
 
@@ -77,22 +79,29 @@ Route::put('/painel/cadastros/usuarios/{usuario}', [UsuarioController::class,"ed
 
 //Juri -> Etapas 
 
-Route::get('/painel/juri/EtapaAtual/', [JuriController::class,"create"] );
-Route::post('/painel/juri/EtapaAtual/', [JuriController::class,"insert"]);
+Route::get('/painel/juri/EtapaAtual/', [JuriController::class,"EtapaAtualView"] );
+Route::get('/painel/juri/EtapasAnteriores', [JuriController::class,"EtapaAnteriorView"] );
+Route::get('/painel/juri/CriarEtapa', [JuriController::class,"CriarEtapaView"] );
 
-Route::get('/painel/juri/EtapasAnteriores', [JuriController::class,"create"] );
-Route::post('/painel/juri/EtapasAnteriores', [JuriController::class,"insert"]);
-
-Route::get('/painel/juri/CriarEtapa', [JuriController::class,"create"] );
-Route::post('/painel/juri/CriarEtapa', [JuriController::class,"insert"]);
+Route::get('/painel/juri/etapa/criar', [JuriController::class,"criarEtapa"]);
+Route::post('/painel/juri/etapa/criar', [JuriController::class,"InsertEtapa"]);
+Route::get('/painel/juri/etapa/editar/{etapa}', [JuriController::class,"EditEtapa"])->name('etapas.edit');
+Route::get('/painel/juri/etapa/ver/{etapa}', [JuriController::class,"VerEtapa"])->name('etapas.visualizar');
+Route::put('/painel/juri/etapa/editar/{etapa}', [JuriController::class,"EditarEtapa"])->name('etapas.editar');
 
 //Juri -> Provas
 
-Route::get('/painel/juri/ProvaAtual', [JuriController::class,"create"] );
-Route::post('/painel/juri/ProvaAtual', [JuriController::class,"insert"]);
+Route::get('/painel/juri/ProvaAtual', [JuriController::class,"ProvaAtualView"] );
+Route::get('/painel/juri/ProvasAnteriores', [JuriController::class,"ProvaAnteriorView"] );
+Route::get('/painel/juri/CriarProva', [JuriController::class,"CriarProvaView"] );
 
-Route::get('/painel/juri/ProvasAnteriores', [JuriController::class,"create"] );
-Route::post('/painel/juri/ProvasAnteriores', [JuriController::class,"insert"]);
+Route::get('/painel/juri/prova/criar', [JuriController::class,"criarProva"]);
+Route::post('/painel/juri/prova/criar', [JuriController::class,"InsertProva"]);
+Route::get('/painel/juri/prova/editar/{prova}', [JuriController::class,"EditProva"])->name('provas.edit');
+Route::put('/painel/juri/prova/editar/{prova}', [JuriController::class,"EditarProva"])->name('provas.editar');
 
-Route::get('/painel/juri/CriarProva', [JuriController::class,"create"] );
-Route::post('/painel/juri/CriarProva', [JuriController::class,"insert"]);
+// Inicia prova e etapa
+
+Route::put('/painel/juri/ProvaAtual', [JuriController::class,"IniciaProva"] )->name('provas.iniciar');
+Route::put('/painel/juri/EtapaAtual', [JuriController::class,"IniciaEtapa"] )->name('etapas.iniciar');
+Route::put('/painel/juri/FinalizaEtapa', [JuriController::class,"FinalizaEtapa"] )->name('etapas.finalizar');

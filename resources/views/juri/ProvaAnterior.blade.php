@@ -33,6 +33,7 @@ if(isset($provas)){
         <th>Nome da Prova</th>
         <th>Ganhador</th>
         <th>Código</th>
+        <th>Parabenizar</th>
       </tr>
     </thead>
     <tbody>
@@ -42,6 +43,9 @@ if(isset($provas)){
         <?php $ganhadores = Usuario::where('id', $prova->ganhador)->first(); ?>
         <td>{{$ganhadores->nome}}</td>
         <td>{{$prova->numero}}</td>
+        <td>
+          <a href="{{route('ganhador.show',$prova->numero)}}"><button type="button" class="btn btn-outline-success btn-info">Parabenizar</button></a>
+        </td>
       </tr>
     </tbody>
     @endforeach

@@ -7,58 +7,28 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Instalando o projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Para fazer a instalação do projeto siga os seguintes passos:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Antes de acessar o projeto, certifique-se que esteja com o NODE e o COMPOSER instalados em sua maquina.
+- Encontre o botão CODE<> logo acima, ou clique neste [link](https://github.com/SedaxGaming/GPDoConhecimento2/archive/refs/heads/Main.zip). Será baixado um arquivo em formato RAR.
+- Após, descompacte o mesmo em uma paste de sua preferencia.
+- Abra o seu console de comandos (CMD ou Prompt) e se diriga até a pasta onde os arquivos estão extraidos.
+- Execute os seguintes comandos, um de cada vez e aguarde a finalização dos mesmos.
+- CMD: npm install;
+- CMD: composer install;
+- CMD: composer update;
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Detalhes
 
-## Learning Laravel
+- Após a instalação, ao abrir o projeto a primeira vez, será nescessário configurar uma chave de aplicativo. Basta acessar o endereço do servidor, o mesmo acontecerá para a criação do banco de dados. 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Comandos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Alguns comandos uteis (devem ser executados via terminal, na pasta raiz onde se encontra o projeto):
+- Iniciar o servidor: php artisan serve
+- Iniciar o servidor com Ip: php artisan serve --host xxx.xxx.x.x:8000
+- Criar o banco de dados e as tabelas: php artisan migrate
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Demais comandos podem ser encontrados na documentação oficial

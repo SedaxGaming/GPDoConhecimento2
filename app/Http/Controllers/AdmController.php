@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class AdmController extends Controller
 {
+    //retornam a view para o usuario//
     public function layout(){
         return view("adm/painel");
     }
@@ -33,8 +34,8 @@ class AdmController extends Controller
         $adm = Administradore::find($id);
         return view('/forms/edits/administrador', ['adm' =>$adm]);
     }
-    public function editar(Request $request, Administradore $adm)
-    {
+    public function editar(Request $request, Administradore $adm) //edita o cadastro do adm
+    {  //validações
         $type = "";
         if($request->name === null || $request->name === ""){
             $type .= "É nescessário preencher o campo do nome! ";
@@ -43,9 +44,9 @@ class AdmController extends Controller
         } if($request->senha === null || $request->senha === ""){
             $type .= "É nescessário preencher uma nova senha! ";
         }
-        if($type != ""){
+        if($type != ""){ //com erro
             return redirect('/painel/cadastros')->with('error', $type);    
-        } else{
+        } else{ //sem erro ele grava
             $adm->nome =$request->name;
             $adm->email =$request->email;
             $adm->senha =md5($request->senha);
@@ -57,8 +58,8 @@ class AdmController extends Controller
         }
            
     }
-    public function insert(Request $request){
-        $type = "";
+    public function insert(Request $request){//insere um novo cadastro
+        $type = "";  //validações
         $jatem = Administradore::where('email', '=', $request->email)->count();
         if($request->email === null || $request->email === ""){
             $type .= "É nescessário preencher o campo email! ";
@@ -68,9 +69,9 @@ class AdmController extends Controller
             $type .= "É nescessário preencher um nome! ";
         } if($jatem >=1){$type .= "Este email já está em uso";}
         
-        if($type != ""){
+        if($type != ""){ //com erro
             return redirect('/painel/cadastros/administradores/novo')->with('error', $type);    
-        } else{
+        } else{ //sem erro
             Administradore::insert([
                 'nome' => $request->name,
                 'email' => $request->email,
